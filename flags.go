@@ -162,6 +162,10 @@ func newFlag(name, help string) *FlagClause {
 	return f
 }
 
+func (f *FlagClause) GetName() string {
+	return f.name
+}
+
 func (f *FlagClause) setDefault() error {
 	if f.HasEnvarValue() {
 		if v, ok := f.value.(repeatableFlag); !ok || !v.IsCumulative() {
